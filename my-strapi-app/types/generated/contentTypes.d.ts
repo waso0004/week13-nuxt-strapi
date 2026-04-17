@@ -430,30 +430,30 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
-  collectionName: 'destinations';
+export interface ApiReviewReview extends Struct.CollectionTypeSchema {
+  collectionName: 'reviews';
   info: {
-    displayName: 'Destinations';
-    pluralName: 'destinations';
-    singularName: 'destination';
+    displayName: 'Reviews';
+    pluralName: 'reviews';
+    singularName: 'review';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    body: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    haveVisited: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    director: Schema.Attribute.String;
+    genre: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::destination.destination'
+      'api::review.review'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
@@ -463,6 +463,9 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    releaseYear: Schema.Attribute.Integer;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -980,7 +983,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::destination.destination': ApiDestinationDestination;
+      'api::review.review': ApiReviewReview;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

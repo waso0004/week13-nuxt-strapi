@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(rm -rf .nuxt .output node_modules/.cache)",
+      "Bash(npx nuxt *)"
+    ]
+  }
+}
