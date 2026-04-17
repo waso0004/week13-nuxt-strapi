@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+frontend/.nuxt/
+frontend/.output/
+frontend/dist/
+my-strapi-app/dist/
+my-strapi-app/build/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Strapi
+my-strapi-app/.tmp/
+my-strapi-app/.cache/
+my-strapi-app/public/uploads/*
+!my-strapi-app/public/uploads/.gitkeep
+
+# Strapi database
+my-strapi-app/.strapi/
+my-strapi-app/database/*.db
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
